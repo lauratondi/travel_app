@@ -28,39 +28,46 @@ class Cities extends Component {
     filterCities = () => {
         const { cities, cityFilter } = this.state;
         return cities.filter((city) => {
-            return city.name.toLowerCase().indexOf(cityFilter.toLowerCase() !== -1)
+            return city.name.toLowerCase().indexOf(cityFilter.toLowerCase()) !== -1
         },
         )
     }
 
 
     render() {
-        const cityList = this.state.cities.map(city => {
+        const { loading } = this.props;
 
+        if (!loading)
             return (
-                <li className="city" key={city._id}>
-                    {city.name} - {city.country}
-                    <img src={city.img} alt="cityPhoto" />
-                </li>
+                <div className="flex-container">
 
-            )
-        })
-        return (
-            <div className="flex-container">
+                    <div className="filter">
+                        <label htmlFor="filter">Filter our current city</label>
+                        <input type="text" id="filter"
+                            value={this.state.cityFilter}
+                            onChange={this.handleChange.bind(this)} />
+                    </div>
 
-                <div className="filter">
-                    <label htmlFor="filter">Filter by city</label>
-                    <input type="text" id="filter"
-                        value={this.state.cityFilter}
-                        onChange={this.handleChange.bind(this)} />
+                    <div className="city-list">
+                        <ul>
+                            {this.filterCities().map((city) => {
+                                return (
+                                    <li className="city" key={city._id}>
+                                        <h2><center>{city.name} </center> </h2>
+                                        <img src={city.img} alt="cityPhoto" />
+                                    </li>
+                                )
+                            }
+                            )}
+                        </ul>
+                    </div>
+
                 </div>
-
-                <ul className="city-list">
-                    {cityList}
-                </ul>
-
-            </div>
-        )
+            )
+        else
+            return (
+                <div>Loading cities...</div>
+            )
     }
 }
 

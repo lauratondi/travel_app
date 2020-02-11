@@ -9,6 +9,7 @@ router.get('/all', (req, res) => {
             res.send(files)
         })
         .catch(err => console.log(err));
+    console.log(this.cities)
 });
 
 

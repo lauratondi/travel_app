@@ -6,6 +6,9 @@ import arrowIcon from '../images/arrowIcon.png'
 import homeIcon from '../images/homeIcon.png'
 
 class Landing extends Component {
+    state = {
+        cities: []
+    }
     render() {
         return (
             <div className="flex-container">
@@ -16,22 +19,27 @@ class Landing extends Component {
 
                 <div className="infoItem">
                     <p>Find your perfect trip, designed by insiders
-                    who know and love their cities</p>
+                    who know and love their cities.</p>
                 </div>
 
                 <div className="nextItem">
-                    <h1>Start browsing</h1>
+                    <h2>Start browsing</h2>
                     <Link to="/cities">
                         <img src={arrowIcon} alt="arrowIcon" />
                     </Link>
                 </div>
 
+                <div className="buildItem">
+                    <p>Want you build your own MYtinerary?</p>
+                </div>
                 <div className="linksItem">
-
+                    <p>Log In</p>  <p>Create an account</p>
                 </div>
 
-                <div className="footerItem">
 
+
+                <div className="footerItem">
+                    <img src={homeIcon} alt="homeIcon" />
                 </div>
 
             </div>

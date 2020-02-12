@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Landing from './components/Landing';
 import Cities from './components/Cities';
+import Footer from './components/Footer';
 
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Landing} />
             <Route path='/cities' component={Cities} />
+            <Route exact path='/' comonent={Footer} />
           </Switch>
 
         </div>

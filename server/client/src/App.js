@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Landing from './components/Landing';
 import Cities from './components/Cities';
 import Footer from './components/Footer';
+import Itineraries from './components/Itineraries';
 
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Landing} />
             <Route path='/cities' component={Cities} />
-            <Route exact path='/' comonent={Footer} />
+            <Route path='/itineraries/:city' component={Itineraries} />
+            <Route exact path='/' component={Footer} />
           </Switch>
 
         </div>

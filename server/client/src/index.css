@@ -48,7 +48,7 @@ img {
 
 .linksItem{
   display: flex;
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .footerItem{
@@ -84,4 +84,10 @@ margin-right: -5px;
 
 li{
   list-style-type: none;
+  
+}
+ 
+a{ 
+  text-decoration: blink;
+  color: black;
 }

@@ -34,3 +34,5 @@ mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTo
 
 
 app.use('/cities', require('./routes/cities'));
+app.use('/itineraries', require('./routes/itineraries'))
+

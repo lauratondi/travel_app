@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Footer from './Footer';
 import { connect } from 'react-redux'
 import { fetchCityList } from '../store/actions/cityActions';
-
+import { Link } from 'react-router-dom'
 
 class Cities extends Component {
 
@@ -62,8 +62,10 @@ class Cities extends Component {
                             {this.filterCities().map((city) => {
                                 return (
                                     <li className="city" key={city._id}>
-                                        <h2><center>{city.name} - {city.country} </center> </h2>
-                                        <img src={city.img} alt="cityPhoto" />
+                                        <Link to={`/itineraries/${city.name}`}>
+                                            <h2><center>{city.name} - {city.country} </center> </h2>
+                                            <img src={city.img} alt="cityPhoto" />
+                                        </Link>
                                     </li>
                                 )
                             }

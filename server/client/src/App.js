@@ -4,6 +4,7 @@ import Landing from './components/Landing';
 import Cities from './components/Cities';
 import Footer from './components/Footer';
 import Itineraries from './components/Itineraries';
+// import CityCard from './components/CityCard';
 
 
 class App extends Component {

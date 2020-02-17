@@ -12,7 +12,7 @@ img {
   width:100%
 }
 
-/* LANDING PAGE */
+/* -------------LANDING PAGE -------------*/
 
 .headerItem{
   display: flex;
@@ -61,7 +61,7 @@ img {
 width: 46px
 }
 
-/* CITIES PAGE */
+/* -------------CITIES PAGE------------- */
 
 .filter{
   display: flex;
@@ -90,4 +90,72 @@ li{
 a{ 
   text-decoration: blink;
   color: black;
+}
+
+/* -------------ITINERARIES PAGE------------- */
+
+.itineraries-list{
+  display: grid;
+  grid-gap:26px;
+  
+}
+
+.itineraryItem{
+  display: grid;
+  border: 1px solid black;
+  
+}
+.titleIt{
+  grid-column: 2/ span 3;
+  grid-row:1;
+}
+
+.detailsIt{
+  grid-column: 2/span 3;
+  grid-row:2;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hashtag{
+  grid-column: 2/span 3;
+  grid-row: 3;
+  display: flex;
+  
+}
+.viewAll{
+  display: flex;
+  grid-column: 1/span 4;
+  grid-row:4;
+  background-color: grey;
+  flex-direction: column;
+}
+
+.user{
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+.user img{
+  width: 63px;
+}
+
+.cityCard {
+  display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
+    /* padding: 12px; */
+    /* margin-bottom: 14px; */
+}
+
+/* ------------ACTIVITIES COMPONENT------------- */
+.activities{
+  flex-wrap: nowrap;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+display: flex;
+flex-direction: row;
+margin-right: 1px;
 }

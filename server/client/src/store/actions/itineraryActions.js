@@ -24,6 +24,7 @@ export const fetchItinerariesFailure = (error) => {
 
 export const fetchItineraryList = (city) => {
     return function (dispatch) {
+
         dispatch(fetchItinerariesRequest())
         return fetch(`http://localhost:5000/itineraries/${city}`)
             .then(

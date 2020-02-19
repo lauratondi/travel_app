@@ -33,7 +33,7 @@ class Landing extends Component {
                     <p>Want you build your own MYtinerary?</p>
                 </div>
                 <div className="linksItem">
-                    <p>Log In</p>  <p>Create an account</p>
+                    <p>Log In</p>  <Link to="/user"><p>Create an account</p></Link>
                 </div>
 
 

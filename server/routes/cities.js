@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cityModel = require('../model/cityModel');
+const auth = require('../middleware/auth');
 
 // GET all cities
 router.get('/all', (req, res) => {
@@ -13,7 +14,7 @@ router.get('/all', (req, res) => {
 
 // POST a new city
 
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
     const newCity = new cityModel({
         name: req.body.name,
         country: req.body.country,

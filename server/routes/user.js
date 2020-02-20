@@ -5,25 +5,6 @@ const jwt = require('jsonwebtoken');
 const userModel = require('../model/userModel');
 const keys = require('../keys')
 
-// const { check, validationResult } = require('express-validator');
-
-// // POST New Account
-
-// router.post('/user ', [
-//     check('email').isEmail(),
-//     check('password').isLength({ min: 4 })
-// ], (req, res => {
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//         return res.status(422).json({ errors: errors.array() });
-//     }
-
-//     user.create({
-//         email: req.body.email,
-//         password: req.body.password
-//     }).then(user => res.json(user));
-// })
-// );
 
 router.post('/', (req, res) => {
 
@@ -71,10 +52,6 @@ router.post('/', (req, res) => {
                 })
             })
         });
-
-
 });
-
-
 
 module.exports = router

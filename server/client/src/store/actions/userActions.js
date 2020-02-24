@@ -1,29 +1,49 @@
 const axios = require('axios');
 
-export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST';
-export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCES';
-export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE';
+export const USER_REQUEST = 'USER_REQUEST';
+export const USER_SUCCESS = 'USER_SUCCES';
+export const USER_FAILURE = 'USER_FAILURE';
 
-export const fetchUserRequest = () => {
+export const userRequest = () => {
     return {
-        type: FETCH_USER_REQUEST
+        type: USER_REQUEST
     }
 }
 
-export const fetchUserSuccess = (user) => {
+export const userSuccess = (user) => {
     return {
-        type: FETCH_USER_SUCCESS,
+        type: USER_SUCCESS,
         payload: user
     }
 }
 
-export const fetchUserFailure = (error) => {
+export const userFailure = (error) => {
     return {
-        type: FETCH_USER_FAILURE,
+        type: USER_FAILURE,
         payload: error
     }
 };
 
-export const fetchUser = (user) => {
+export const fetchUser = (email, password) => {
+    console.log(email, password)
+    return (dispatch) => {
+        dispatch(userRequest())
+        axios.post("http://localhost:5000/user", {
+            'email': email,
+            'password': password
+        }, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then(response => {
+                const user = response.data
+                dispatch(userSuccess(user))
+                console.log(response.data)
+            })
+            .catch(error => {
+                dispatch(userFailure(error.message));
+            });
+    }
 
-}
+};

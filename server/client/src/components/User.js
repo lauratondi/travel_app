@@ -1,15 +1,24 @@
-import React, { Component } from 'react'
-import Footer from './Footer'
+import React, { Component } from 'react';
+import Footer from './Footer';
+import { connect } from 'react-redux'
+import { fetchUser } from '../store/actions/userActions';
 
 class User extends Component {
-    state = {
-        username: '',
-        password: '',
-        email: '',
-        firstName: '',
-        lastName: '',
-        country: ''
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            email: '',
+            firstName: '',
+            lastName: '',
+            country: ''
+        }
     }
+
+    // componentDidMount() {
+    //     this.props.fetchUser()
+    // }
 
     handleChange = (e) => {
         this.setState({
@@ -18,8 +27,11 @@ class User extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
+
+        this.props.fetchUser(this.state.email, this.state.password)
     }
+
+
     render() {
         return (
             <div className='form-container'>
@@ -85,4 +97,19 @@ class User extends Component {
     }
 }
 
-export default User;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchUser: (email, password) => dispatch(fetchUser(email, password))
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(User);

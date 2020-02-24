@@ -7,8 +7,8 @@ const keys = require('../keys')
 
 
 router.post('/', (req, res) => {
-
-    const { email, password } = req.body;
+    console.log(req.body)
+    const { email, password } = JSON.parse(Object.keys(req.body)[0]);
     // Simple validation
     if (!email || !password) {
         return res.status(400).json({ msg: 'Please enter the fields' })

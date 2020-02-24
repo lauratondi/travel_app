@@ -1,6 +1,6 @@
-const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST';
-const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCES';
-const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE';
+const USER_REQUEST = 'USER_REQUEST';
+const USER_SUCCESS = 'USER_SUCCES';
+const USER_FAILURE = 'USER_FAILURE';
 
 const initialState = {
     loading: true,
@@ -10,20 +10,20 @@ const initialState = {
 
 export default function userReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_USER_REQUEST:
+        case USER_REQUEST:
             return {
                 ...state,
                 loading: true
             }
 
-        case FETCH_USER_SUCCESS:
+        case USER_SUCCESS:
             return {
                 loading: false,
                 user: action.payload,
                 erro: ''
             }
 
-        case FETCH_USER_FAILURE:
+        case USER_FAILURE:
             return {
                 loading: false,
                 user: [],

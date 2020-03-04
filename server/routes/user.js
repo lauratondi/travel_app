@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
     const { email, password } = JSON.parse(Object.keys(req.body)[0]);
     // Simple validation
     if (!email || !password) {
-        return res.status(400).json({ msg: 'Please enter the fields' })
+        return res.status(405).json({ msg: 'Please enter the fields' })
     }
     // check if the user already exists
     userModel.findOne({ email })

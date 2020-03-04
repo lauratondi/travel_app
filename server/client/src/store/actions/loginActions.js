@@ -32,9 +32,10 @@ export const fetchLogin = (email, password) => {
             'password': password
         }).then(response => {
             console.log(response)
-            const login = response.data
-            dispatch(loginSuccess(login))
-            console.log(login)
+            const user = response.data.user
+            const token = response.data.token;
+            dispatch(loginSuccess(user))
+            console.log(user, token)
         }).catch(error => {
             console.log(error)
             dispatch(loginFailure(error.message));

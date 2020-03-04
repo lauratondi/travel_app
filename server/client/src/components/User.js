@@ -12,7 +12,7 @@ class User extends Component {
             email: '',
             firstName: '',
             lastName: '',
-            country: ''
+            country: '',
         }
     }
 

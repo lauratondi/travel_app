@@ -19,7 +19,7 @@ const port = process.env.PORT || 5000;
 
 // We want our app listen to that port
 app.listen(port, () => {
-    console.log("Server is running on" + port + "port");
+    console.log("Server is running on " + port + " port");
 });
 
 // DB configuration and interaction with our MongoDb database

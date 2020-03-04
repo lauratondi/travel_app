@@ -3,9 +3,11 @@ const USER_SUCCESS = 'USER_SUCCES';
 const USER_FAILURE = 'USER_FAILURE';
 
 const initialState = {
+    token: '',
+    isAuthenticated: false,
     loading: true,
     user: [],
-    error: ''
+    error: '',
 }
 
 export default function userReducer(state = initialState, action) {
@@ -17,16 +19,20 @@ export default function userReducer(state = initialState, action) {
             }
 
         case USER_SUCCESS:
+            localStorage.setItem('token', action.payload.token);
             return {
+                isAuthenticated: true,
                 loading: false,
                 user: action.payload,
-                erro: ''
+                error: ''
             }
 
         case USER_FAILURE:
+            localStorage.removeItem('token');
             return {
+                isAuthenticated: false,
                 loading: false,
-                user: [],
+                user: {},
                 error: action.payload
             }
 
